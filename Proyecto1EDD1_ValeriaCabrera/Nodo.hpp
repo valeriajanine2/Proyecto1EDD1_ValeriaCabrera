@@ -14,6 +14,8 @@ class Nodo{
 		Nodo();
 		void setItem(Item* tipo_elemento);
 		void setNodo(Nodo* sig);
+		Nodo* getNodo();
+		Item* getItem();
 		InsertarNodo(Nodo* nuevo, int pos);
 		EliminarNodo(int pos);
 };

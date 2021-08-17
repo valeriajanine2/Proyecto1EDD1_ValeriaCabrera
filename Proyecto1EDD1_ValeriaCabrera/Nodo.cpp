@@ -11,3 +11,11 @@ void Nodo::setItem(Item* tipo_elemnto){
 void Nodo::setNodo(Nodo* sig){
 	this->sig=sig;
 }
+
+Nodo* Nodo::getNodo(){
+	return this->sig;
+}
+
+Item* Nodo::getItem(){
+	return this->getItem();
+}

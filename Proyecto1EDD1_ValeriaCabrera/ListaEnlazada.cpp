@@ -18,35 +18,47 @@ ListaEnlazada::ListaEnlazada(Nodo* head, int length){
 }
 
 ListaEnlazada::~ListaEnlazada(){
-	
+	delete head;
 }
 
 int ListaEnlazada::FIN(Lista* L){
-	return 1;
+	return this->length+1;
 }
 
-void ListaEnlazada::INSERTA(Item* x, int p, Lista* L){
+void ListaEnlazada::INSERTA(Item* x, int pos, Lista* L){
 	
+    if ( (pos <= 0) || (pos > this->length + 1) )
+    {
+        cout << "Error: la posicion esta fuera del rango" << endl;
+    }
+    else if (!head->getNodo())
+    {        
+		head->setItem(x);
+        length++;
+        cout << "Success: added '" << x->getName() << "' to position " << pos << ".\n";
+        cout << "listLength = " << length << endl;
+    }
+    
 }
 
 int ListaEnlazada::LOCALIZA(Item* x, Lista* L){
 	return 1;
 }
 
-Item* ListaEnlazada::RECUPERA(int p, Lista* L){
+Item* ListaEnlazada::RECUPERA(int pos, Lista* L){
 	Item* n;
 	return n;
 }
 
-void ListaEnlazada::SUPRIME(int p, Lista* L){
+void ListaEnlazada::SUPRIME(int pos, Lista* L){
 	
 }
 
-int ListaEnlazada::SIGUIENTE(int p, Lista* L){
+int ListaEnlazada::SIGUIENTE(int pos, Lista* L){
 	return 1;
 }
 
-int ListaEnlazada::ANTERIOR(int p, Lista* L){
+int ListaEnlazada::ANTERIOR(int pos, Lista* L){
 	return 1;
 }
 

@@ -17,13 +17,35 @@ int main(int argc, char** argv) {
 	//menu
 	int opcion=0;
 	while(opcion!=11){
+		cout<<"BIENVENIDO A SU LISTA DE SUPERMERCADO\n";
 		cout<<"MENU"<<endl;
 		cout<<"1) Inserta\n2) Fin\n3) Localiza\n4) Recupera\n5) Suprime\n6) Siguiente\n7) Anterior\n8) Primero\n9) Imprimir Lista\n10) Anula\n11) Salir\n";
-		cout<<"Ingrese el numero de la opcion que desea realizar"<<endl;
+		cout<<"Ingrese el numero de la opcion que desea realizar: ";
 		cin>>opcion;
 		switch(opcion){
 			case 1:{
 				//Inserta
+				
+				//crear el item
+				string nombre;
+				float precio;
+				int cant;
+				
+				cout<<"Ingrese el nombre del articulo: ";
+				cin>>nombre;
+				cout<<"Ingrese el precio de "+nombre+" L.";
+				cin>>precio;
+				cout<<"Ingrese la cantidad a comprar: ";
+				cin>>cant;
+				
+				Item* x = new Item(nombre,precio,cant);
+				
+				//implementar metodo
+				int pos;
+				cout<<"Ingrese la poscion en la lista donde desea insertar: ";
+				cin>>pos;
+				
+				L->INSERTA(x,pos,L);
 				
 				break;
 			}
@@ -31,11 +53,18 @@ int main(int argc, char** argv) {
 			case 2:{
 				//fin
 				
+				cout<<"FIN(L): ";
+				cout<<L->FIN(L)<<endl;
+				
 				break;
 			}
 			
 			case 3:{
 				//localiza
+				
+				string nombre;
+				cout<<"Ingrese el nombre del item que desea localizar: ";
+				cin>>nombre;
 				
 				break;
 			}
@@ -93,6 +122,9 @@ int main(int argc, char** argv) {
 			}
 		}
 	}//fin del while
+	
+	//destructores
+	delete L;
 	
 	return 0;
 }

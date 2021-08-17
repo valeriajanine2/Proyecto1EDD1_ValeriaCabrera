@@ -13,13 +13,13 @@ class ListaEnlazada:public Lista{
 		ListaEnlazada(Nodo* head, int length);
 		~ListaEnlazada();
 		//metodos de la lista
-		virtual void INSERTA(Item* x, int p, Lista* L);
+		virtual void INSERTA(Item* x, int pos, Lista* L);
 		virtual int FIN(Lista* L);
 		virtual int LOCALIZA(Item* x, Lista* L);
-		virtual Item* RECUPERA(int p, Lista* L);
-		virtual void SUPRIME(int p, Lista* L);
-		virtual int SIGUIENTE(int p, Lista* L);
-		virtual int ANTERIOR(int p, Lista* L);
+		virtual Item* RECUPERA(int pos, Lista* L);
+		virtual void SUPRIME(int pos, Lista* L);
+		virtual int SIGUIENTE(int pos, Lista* L);
+		virtual int ANTERIOR(int pos, Lista* L);
 		virtual int ANULA(Lista* L);
 		virtual int PRIMERO(Lista* L);
 		virtual void IMPRIME_LISTA(Lista* L);
