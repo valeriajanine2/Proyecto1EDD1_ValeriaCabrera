@@ -1,7 +1,16 @@
 #include "ListaEnlazada.hpp"
 
 ListaEnlazada::ListaEnlazada():Lista(){
-	
+	cout << "\nEntering Constructor ..." << endl;
+	Item* vacio = new Item();
+    head = new Nodo;
+    head->setItem(vacio);
+    vacio->setName("head");
+    vacio->setPrecio(0);
+    vacio->setCant(0);
+    head->setNodo(NULL);
+    length = 0;
+    cout << "Success: head node created. listLength set to 0." << endl;
 }
 
 ListaEnlazada::ListaEnlazada(Nodo* head, int length){
