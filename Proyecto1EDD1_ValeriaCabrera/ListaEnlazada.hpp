@@ -2,7 +2,6 @@
 #define LISTAENLAZADA_HPP
 #include <iostream>
 #include "Lista.hpp"
-#include "Nodo.hpp"
 #include "Item.hpp"
 
 using namespace std;

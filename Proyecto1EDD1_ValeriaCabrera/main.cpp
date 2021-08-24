@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "Item.hpp"
-#include "Nodo.hpp"
 #include "Lista.hpp"
 #include "ListaEnlazada.hpp"
 
@@ -101,7 +100,7 @@ int main(int argc, char** argv) {
 			
 			case 9:{
 				//imprime lista
-				
+				L->IMPRIME_LISTA(L);
 				break;
 			}
 			

@@ -1,10 +1,15 @@
 #ifndef LISTA_HPP
 #define LISTA_HPP
 #include <iostream>
-#include "Nodo.hpp"
 #include "Item.hpp"
 
 using namespace std;
+
+struct Nodo
+{
+	Item* tipo_elemento;
+	Nodo* sig;
+};
 
 class Lista{
 	protected:
