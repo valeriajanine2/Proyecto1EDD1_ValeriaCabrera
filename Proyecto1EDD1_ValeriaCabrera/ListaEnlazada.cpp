@@ -1,13 +1,11 @@
 #include "ListaEnlazada.hpp"
 
 ListaEnlazada::ListaEnlazada():Lista(){
-	cout << "\nEntering Constructor ..." << endl;
     head = new Nodo;
     Item* item = new Item("head",0,0);
     head->tipo_elemento = item;
     head->sig = NULL;
     length = 0;
-    cout << "Success: head node created. listLength set to 0." << endl;
 }
 
 ListaEnlazada::ListaEnlazada(Nodo* head, int length){
@@ -43,11 +41,8 @@ void ListaEnlazada::INSERTA(Item* x, int pos, Lista* L){
     if ( (pos <= 0) || (pos > this->length + 1) ){
         cout << "Error: la posicion esta fuera del rango" << endl;
     }else if(!head->sig){
-    	cout<<"en el primero entra aqui\n";
 		head->sig = nuevoNodo;
         length++;
-        cout << "Success: added '" << nuevoNodo->tipo_elemento->getName() << "' to position " << pos << ".\n";
-        cout << "listLength = " << length << endl;
 	}else{
 		int count = 0;
 		Nodo* p = new Nodo;
@@ -63,8 +58,6 @@ void ListaEnlazada::INSERTA(Item* x, int pos, Lista* L){
         p->sig= nuevoNodo;
         nuevoNodo->sig= q;
         length++;
-        cout << "Success: added '" << nuevoNodo->tipo_elemento << "' to position " << pos << ".\n";
-        cout << "listLength = " << length << endl;
     	}
 			
 	} 
@@ -81,7 +74,33 @@ Item* ListaEnlazada::RECUPERA(int pos, Lista* L){
 }
 
 void ListaEnlazada::SUPRIME(int pos, Lista* L){
-	
+	cout << "\nEntering removeNode..." << endl;
+    if ( (pos <= 0) || (pos > length + 1) )
+    {
+        cout << "Error: la posicion esta fuera de rango" << endl;
+    }
+    if (!head->sig)
+    {
+        cout << "Error: no hay nada que borrar" << endl;
+    }
+    
+    int count = 0;
+    Nodo* p = new Nodo;
+	Nodo* q = new Nodo;
+	p = head;
+	q = head;
+    while (q)
+    {
+        if (count == pos)
+        {
+            p->sig = q->sig;
+            delete q;
+            length--;
+        }
+        p = q;
+        q = p->sig;
+        count++;
+    }
 }
 
 int ListaEnlazada::SIGUIENTE(int pos, Lista* L){
@@ -101,7 +120,6 @@ int ListaEnlazada::PRIMERO(Lista* L){
 }
 
 void ListaEnlazada::IMPRIME_LISTA(Lista* L){
-	cout << "\nEntered printList..." << endl;
     int count = 0;
     Nodo* p = new Nodo;
 	Nodo* q = new Nodo;
@@ -112,6 +130,9 @@ void ListaEnlazada::IMPRIME_LISTA(Lista* L){
     while (q)
     {
         p = q;
+        if(count==0){
+        	p = p->sig;
+		}
         Item* it = p->tipo_elemento;
         cout << "---------------------\n";
         cout << "Articulo #" << count << "\n";

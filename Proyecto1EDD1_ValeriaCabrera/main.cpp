@@ -76,7 +76,10 @@ int main(int argc, char** argv) {
 			
 			case 5:{
 				//suprime
-				
+				int pos;
+				cout<<"Ingrese la posicion del articulo que desea eliminar: ";
+				cin>>pos;
+				L->SUPRIME(pos, L);
 				break;
 			}
 			
