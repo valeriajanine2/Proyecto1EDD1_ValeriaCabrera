@@ -80,6 +80,14 @@ int main(int argc, char** argv) {
 			case 4:{
 				//recupera
 				
+				int pos;
+				cout<<"Ingrese la posicion del articulo que desea recuperar: ";
+				cin>>pos;
+				Item* res = L->RECUPERA(pos,L);
+				if(!(res==NULL)){
+					cout<<"Articulo: "+res->getName()+"\nPrecio: L. "+to_string(res->getPrecio())+"\nCantidad: "+to_string(res->getCant())+"\n";
+				}
+				
 				break;
 			}
 			

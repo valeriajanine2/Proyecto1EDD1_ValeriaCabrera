@@ -92,8 +92,29 @@ int ListaEnlazada::LOCALIZA(Item* x, Lista* L){
 }
 
 Item* ListaEnlazada::RECUPERA(int pos, Lista* L){
+	
 	Item* n;
-	return n;
+	
+	if ( (pos <= 0) || (pos > this->length + 1) ){
+        cout << "Error: la posicion esta fuera del rango" << endl;
+        return NULL;
+    }else{
+    	Nodo* p = new Nodo;
+		Nodo* q = new Nodo;
+		p = head;
+		q = head;
+		int cont=0;
+		while(q){
+			p = q;
+			if(cont==pos){
+				n = p->tipo_elemento;
+			}
+			q = p->sig;
+			cont++;
+		}
+		return n;
+	}
+	
 }
 
 void ListaEnlazada::SUPRIME(int pos, Lista* L){
