@@ -65,7 +65,30 @@ void ListaEnlazada::INSERTA(Item* x, int pos, Lista* L){
 }
 
 int ListaEnlazada::LOCALIZA(Item* x, Lista* L){
-	return 1;
+	bool existe = false;
+	Nodo* p = new Nodo;
+	Nodo* q = new Nodo;
+	p = head;
+	q = head;
+	int cont = 0;
+	int ret;
+	while(q){
+		p = q;
+		Item* temp = p->tipo_elemento;
+		if(temp->getName()==x->getName()){
+			ret = cont;
+			existe=true;
+		}
+		q = p->sig;
+		cont++;
+	}
+	
+	if(existe){
+		return ret;
+	}else{
+		return L->FIN(L);
+	}
+	
 }
 
 Item* ListaEnlazada::RECUPERA(int pos, Lista* L){
@@ -132,6 +155,7 @@ void ListaEnlazada::IMPRIME_LISTA(Lista* L){
         p = q;
         if(count==0){
         	p = p->sig;
+        	count++;
 		}
         Item* it = p->tipo_elemento;
         cout << "---------------------\n";

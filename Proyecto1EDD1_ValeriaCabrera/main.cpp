@@ -64,6 +64,15 @@ int main(int argc, char** argv) {
 				string nombre;
 				cout<<"Ingrese el nombre del item que desea localizar: ";
 				cin>>nombre;
+				Item* x = new Item();
+				x->setName(nombre);
+				int temp = L->LOCALIZA(x,L);
+				
+				if(temp==L->FIN(L)){
+					cout<<"No existe este articulo en la lista, fin: "+to_string(temp)+"\n";
+				}else{
+					cout<<"Este articulo se encuentra en la posicion: "+to_string(temp)+"\n";
+				}
 				
 				break;
 			}
