@@ -133,6 +133,8 @@ int main(int argc, char** argv) {
 			case 8:{
 				//primero
 				
+				cout<<"El primero se encuentra en "+to_string(L->PRIMERO(L));
+				
 				break;
 			}
 			
