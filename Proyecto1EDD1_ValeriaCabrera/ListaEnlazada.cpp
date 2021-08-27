@@ -95,7 +95,7 @@ Item* ListaEnlazada::RECUPERA(int pos, Lista* L){
 	
 	Item* n;
 	
-	if ( (pos <= 0) || (pos > this->length + 1) ){
+	if ( (pos <= 0) || (pos > this->length + 1) || (pos==L->FIN(L))){
         cout << "Error: la posicion esta fuera del rango" << endl;
         return NULL;
     }else{
@@ -118,7 +118,6 @@ Item* ListaEnlazada::RECUPERA(int pos, Lista* L){
 }
 
 void ListaEnlazada::SUPRIME(int pos, Lista* L){
-	cout << "\nEntering removeNode..." << endl;
     if ( (pos <= 0) || (pos > length + 1) )
     {
         cout << "Error: la posicion esta fuera de rango" << endl;
@@ -148,14 +147,25 @@ void ListaEnlazada::SUPRIME(int pos, Lista* L){
 }
 
 int ListaEnlazada::SIGUIENTE(int pos, Lista* L){
-	return 1;
+	if ( (pos <= 0) || (pos > this->length + 1) || (pos==L->FIN(L))){
+        cout << "Error: la posicion siguiente esta indefinida" << endl;
+        return 0;
+    }else{
+		return pos+1;
+	}
 }
 
 int ListaEnlazada::ANTERIOR(int pos, Lista* L){
-	return 1;
+	if ( (pos <= 1) || (pos > this->length + 1) || (pos==L->FIN(L))){
+        cout << "Error: la posicion anterior esta indefinida" << endl;
+        return 0;
+    }else{
+		return pos-1;
+	}
 }
 
 int ListaEnlazada::ANULA(Lista* L){
+    
 	return L->FIN(L);
 }
 

@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 				//Inserta
 				
 				//crear el item
-				string nombre;
+				/*string nombre;
 				float precio;
 				int cant;
 				
@@ -37,14 +37,23 @@ int main(int argc, char** argv) {
 				cout<<"Ingrese la cantidad a comprar: ";
 				cin>>cant;
 				
-				Item* x = new Item(nombre,precio,cant);
+				Item* x = new Item(nombre,precio,cant);*/
+				
+				Item* x = new Item("pan",26.32,2);
+				Item* x1 = new Item("queso",33.75,3);
+				Item* x2 = new Item("jamon",60.13,1);
+				Item* x3 = new Item("mayonesa",29.98,2);
 				
 				//implementar metodo
-				int pos;
+				/*int pos;
 				cout<<"Ingrese la poscion en la lista donde desea insertar: ";
 				cin>>pos;
 				
-				L->INSERTA(x,pos,L);
+				L->INSERTA(x,pos,L);*/
+				L->INSERTA(x,1,L);
+				L->INSERTA(x1,2,L);
+				L->INSERTA(x2,3,L);
+				L->INSERTA(x3,4,L);
 				
 				break;
 			}
@@ -102,13 +111,22 @@ int main(int argc, char** argv) {
 			
 			case 6:{
 				//siguiente
+				int pos;
+				cout<<"Ingrese la posicion del articulo: ";
+				cin>>pos;
+				
+				cout<<"El articulo siguiente se encuentra en la poscion: "+to_string(L->SIGUIENTE(pos,L))+"\n";
 				
 				break;
 			}
 			
 			case 7:{
 				//anterior
+				int pos;
+				cout<<"Ingrese la posicion del articulo: ";
+				cin>>pos;
 				
+				cout<<"El articulo anterior se encuentra en la poscion: "+to_string(L->ANTERIOR(pos,L))+"\n";
 				break;
 			}
 			
@@ -126,6 +144,8 @@ int main(int argc, char** argv) {
 			
 			case 10:{
 				//anula
+				
+				cout<<"FIN: "+to_string(L->ANULA(L));
 				
 				break;
 			}
