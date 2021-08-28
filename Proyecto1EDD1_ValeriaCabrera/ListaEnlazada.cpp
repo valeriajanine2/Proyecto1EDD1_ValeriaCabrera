@@ -161,7 +161,11 @@ int ListaEnlazada::ANTERIOR(int pos, Lista* L) {
 }
 
 int ListaEnlazada::ANULA(Lista* L) {
-
+	head = new Nodo;
+	Item* item = new Item("head",0,0);
+	head->tipo_elemento = item;
+	head->sig = NULL;
+	length = 0;
 	return L->FIN(L);
 }
 
@@ -174,7 +178,7 @@ int ListaEnlazada::PRIMERO(Lista* L) {
 }
 
 void ListaEnlazada::IMPRIME_LISTA(Lista* L) {
-	if(L->FIN(L)==0) {
+	if(L->FIN(L)==1) {
 		cout<<"La lista esta vacia\n";
 	} else {
 		int count = 0;
@@ -182,7 +186,7 @@ void ListaEnlazada::IMPRIME_LISTA(Lista* L) {
 		Nodo* q = new Nodo;
 		p = head;
 		q = head;
-		cout << "\n---------------------\n";
+		cout << "\n--------------------------\n";
 		cout << " Lista de Supermercado\n";
 		while (q) {
 			p = q;
@@ -191,11 +195,11 @@ void ListaEnlazada::IMPRIME_LISTA(Lista* L) {
 				count++;
 			}
 			Item* it = p->tipo_elemento;
-			cout << "---------------------\n";
+			cout << "--------------------------\n";
 			cout << "Articulo #" << count << "\n";
 			cout << "\t Nombre: " << it->getName() << "\n";
-			cout << "\t Precio: " << it->getPrecio() << "\n";
-			cout << "\t Cant: " << it->getCant() << "\n";
+			cout << "\t Precio: L. " << it->getPrecio() << "\n";
+			cout << "\t Cantidad: " << it->getCant() << "\n";
 			q = p->sig;
 			count++;
 		}
